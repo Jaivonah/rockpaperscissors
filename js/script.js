@@ -8,26 +8,66 @@
 
 
 // DOCUMENT READY FUNCTION BELOW
-$("button").click(function() { 
+$("#shoot").click(function() { 
     var userChoice = $("#input").val();
     $("#userChoice").text(userChoice);
     var randomChoice = Math.random();
     
     if(randomChoice<.333){
-        var computerChoice=" rock"
-        $("#text").html(computerChoice);
+        var computerChoice="scissors"
     }
     else if(randomChoice<.666){
-        var computerChoice=" paper"
-        $("#text").html(computerChoice);
+        var computerChoice="paper"
+    
     }
-   else if(randomChoice<.){
-        var computerChoice=" rock"
-        $("#text").html(computerChoice);
+   else{ 
+       var computerChoice="rock"
     }
+    
+    $("#computerChoice").text(computerChoice);
+     
+    if(userChoice=== "rock" && computerChoice=== "rock"){
+        winner="tie";
+}
+ else if (userChoice==="rock" && computerChoice==="paper"){
+     winner="computer";
+ }
+   else if (userChoice==="rock" && computerChoice==="scissors"){
+       winner="user";
+   }
+   
+   else if (userChoice==="paper"&& computerChoice==="rock"){
+       winner="user";
+   }
+    else if (userChoice==="paper" && computerChoice==="paper"){
+        winner="tie";
+    }
+   
+  else if(userChoice==="paper"&& computerChoice==="scissors"){
+      winner="computer";
+  }
+else if (userChoice==="scissors"&& computerChoice==="rock"){
+    winner="computer";
+}
+   else if (userChoice==="scissors"&& computerChoice==="paper"){
+    winner="user";
+}
+else if (userChoice==="scissors"&& computerChoice==="scissors"){
+    winner="tie";
+}
+   
+ $("#result").text(winner);
+ 
+ $("#input").text("empty"); 
+   
+   
+   
+   
+   
+    
 });
  
 
-
-var computerChoice = " "
-var winner = " "
+var winner= ""; 
+var userChoice="";
+var computerChoice="";
